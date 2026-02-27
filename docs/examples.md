@@ -4,7 +4,7 @@ This page mirrors the runnable examples under [`examples/`](../examples).
 
 ## cURL
 
-File: [`examples/curl.sh`](../examples/curl.sh)
+File: [`examples/curl_examples.sh`](../examples/curl_examples.sh)
 
 Runs:
 - health check

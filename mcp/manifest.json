@@ -1,152 +1,152 @@
-﻿{
-    "name":  "future-reliability-pack",
-    "version":  "0.3.0",
-    "protocol":  "mcp",
-    "transport":  {
-                      "type":  "http",
-                      "url":  "https://reliability-pack-worker.animixel.workers.dev/mcp"
-                  },
-    "tools":  [
-                  {
-                      "name":  "normalize_input",
-                      "description":  "Normalize broken or inconsistent input to a validated schema.",
-                      "input_schema":  {
-                                           "type":  "object",
-                                           "required":  [
-                                                            "input"
-                                                        ],
-                                           "properties":  {
-                                                              "input":  {
-                                                                            "description":  "String or object payload",
-                                                                            "oneOf":  [
-                                                                                          {
-                                                                                              "type":  "string"
-                                                                                          },
-                                                                                          {
-                                                                                              "type":  "object"
-                                                                                          }
-                                                                                      ]
-                                                                        }
-                                                          }
-                                       },
-                      "output_schema":  {
-                                            "type":  "object",
-                                            "properties":  {
-                                                               "run_id":  {
-                                                                              "type":  "string"
-                                                                          },
-                                                               "ok":  {
-                                                                          "type":  "boolean"
-                                                                      },
-                                                               "normalized":  {
-                                                                                  "type":  "object"
-                                                                              },
-                                                               "warnings":  {
-                                                                                "type":  "array",
-                                                                                "items":  {
-                                                                                              "type":  "string"
-                                                                                          }
-                                                                            },
-                                                               "timing_ms":  {
-                                                                                 "type":  "number"
-                                                                             }
-                                                           }
-                                        }
-                  },
-                  {
-                      "name":  "contract_test_tool",
-                      "description":  "Run a contract test on a target tool/API endpoint.",
-                      "input_schema":  {
-                                           "type":  "object",
-                                           "required":  [
-                                                            "tool_url"
-                                                        ],
-                                           "properties":  {
-                                                              "tool_url":  {
-                                                                               "type":  "string"
-                                                                           },
-                                                              "method":  {
-                                                                             "type":  "string"
-                                                                         },
-                                                              "expected_status":  {
-                                                                                      "type":  "number"
-                                                                                  },
-                                                              "max_latency_ms":  {
-                                                                                     "type":  "number"
-                                                                                 }
-                                                          }
-                                       },
-                      "output_schema":  {
-                                            "type":  "object",
-                                            "properties":  {
-                                                               "run_id":  {
-                                                                              "type":  "string"
-                                                                          },
-                                                               "passed":  {
-                                                                              "type":  "boolean"
-                                                                          },
-                                                               "source_health":  {
-                                                                                     "type":  "string",
-                                                                                     "enum":  [
-                                                                                                  "healthy",
-                                                                                                  "unhealthy"
-                                                                                              ]
-                                                                                 },
-                                                               "latency_ms":  {
-                                                                                  "type":  "number"
-                                                                              },
-                                                               "warnings":  {
-                                                                                "type":  "array",
-                                                                                "items":  {
-                                                                                              "type":  "string"
-                                                                                          }
-                                                                            }
-                                                           }
-                                        }
-                  },
-                  {
-                      "name":  "build_evidence_pack",
-                      "description":  "Capture source snapshots and hashes to support a claim with verifiable evidence.",
-                      "input_schema":  {
-                                           "type":  "object",
-                                           "required":  [
-                                                            "claim",
-                                                            "sources"
-                                                        ],
-                                           "properties":  {
-                                                              "claim":  {
-                                                                            "type":  "string"
-                                                                        },
-                                                              "sources":  {
-                                                                              "type":  "array",
-                                                                              "items":  {
-                                                                                            "type":  "object",
-                                                                                            "properties":  {
-                                                                                                               "url":  {
-                                                                                                                           "type":  "string"
-                                                                                                                       }
-                                                                                                           }
-                                                                                        }
-                                                                          }
-                                                          }
-                                       },
-                      "output_schema":  {
-                                            "type":  "object",
-                                            "properties":  {
-                                                               "run_id":  {
-                                                                              "type":  "string"
-                                                                          },
-                                                               "evidence_id":  {
-                                                                                   "type":  "string"
-                                                                               },
-                                                               "verified":  {
-                                                                                "type":  "boolean"
-                                                                            },
-                                                               "pack_hash":  {
-                                                                                 "type":  "string"
-                                                                             }
-                                                           }
-                                        }
-                  }
-              ]
+{
+  "name": "future-reliability-pack",
+  "version": "0.3.0",
+  "protocol": "mcp",
+  "transport": {
+    "type": "http",
+    "url": "https://reliability-pack-worker.animixel.workers.dev/mcp"
+  },
+  "tools": [
+    {
+      "name": "normalize_input",
+      "description": "Normalize broken or inconsistent input to a validated schema.",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "input"
+        ],
+        "properties": {
+          "input": {
+            "description": "String or object payload",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "normalized": {
+            "type": "object"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timing_ms": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    {
+      "name": "contract_test_tool",
+      "description": "Run a contract test on a target tool/API endpoint.",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "tool_url"
+        ],
+        "properties": {
+          "tool_url": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "expected_status": {
+            "type": "number"
+          },
+          "max_latency_ms": {
+            "type": "number"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "source_health": {
+            "type": "string",
+            "enum": [
+              "healthy",
+              "unhealthy"
+            ]
+          },
+          "latency_ms": {
+            "type": "number"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "build_evidence_pack",
+      "description": "Capture source snapshots and hashes to support a claim with verifiable evidence.",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "claim",
+          "sources"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "evidence_id": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "pack_hash": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
 }

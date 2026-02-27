@@ -48,6 +48,11 @@ curl -sS -X POST "https://reliability-pack-worker.animixel.workers.dev/api/evide
   -d '{"claim":"example claim","sources":[{"url":"https://example.com"}]}'
 ```
 
+## Full script
+
+Use the runnable full example:
+- `examples/curl_examples.sh`
+
 ## Traceability
 
 Use `run_id` for execution lookup:

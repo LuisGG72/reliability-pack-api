@@ -2,21 +2,28 @@
 
 Operational reliability API for AI agents.
 
-Status: deployed
-Version: 0.3.0
+## Status
 
-Base URL:
+- deployed
+- version: 0.3.0
+
+## Base URL
+
 - https://reliability-pack-worker.animixel.workers.dev
 
-Auth:
+## Auth
+
 - Header: x-api-key
 
-Discovery:
+## Discovery
+
 - https://reliability-pack-worker.animixel.workers.dev/openapi.json
 - https://reliability-pack-worker.animixel.workers.dev/.well-known/agent.json
 - https://reliability-pack-worker.animixel.workers.dev/mcp/manifest.json
 
-Public endpoints:
+## Endpoints
+
+Public:
 - GET /health
 - GET /api/version
 - GET /openapi.json
@@ -27,7 +34,7 @@ Public endpoints:
 - GET /api/public-analytics
 - GET /api/public-ops
 
-Private endpoints:
+Private:
 - POST /api/normalize
 - POST /api/contract-test
 - POST /api/contract-test/schedule
@@ -36,3 +43,12 @@ Private endpoints:
 - POST /api/evidence-pack
 - GET /api/runs/{run_id}
 - GET /api/stats
+
+## Examples
+
+- https://github.com/LuisGG72/reliability-pack-api/tree/main/examples
+
+## Limits
+
+- API key required for private endpoints.
+- Server-side rate limiting and request-size controls are enforced.

@@ -72,7 +72,10 @@ Expected response shape (example):
 - `llms.txt`: [`llms.txt`](./llms.txt)
 - Agent card: [`.well-known/agent.json`](./.well-known/agent.json)
 - MCP manifest: [`mcp/manifest.json`](./mcp/manifest.json)
-- Copy/paste examples: [`examples/`](./examples)
+- Copy/paste examples:
+- [`examples/curl_examples.sh`](./examples/curl_examples.sh)
+- [`examples/node.js`](./examples/node.js)
+- [`examples/python.py`](./examples/python.py)
 
 ## Pricing
 
