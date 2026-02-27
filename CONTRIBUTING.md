@@ -10,7 +10,7 @@ Thanks for helping improve the integration portal.
 
 ## Ground rules
 
-- Do not add secrets, real keys, or private operational details.
+- Use placeholders in examples and requests.
 - Keep examples generic and safe for public use.
 - Keep changes aligned with live API behavior.
 

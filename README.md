@@ -4,7 +4,6 @@ Operational reliability API for AI agents.
 
 This repository is the public integration portal for the live SaaS service.
 It contains docs, manifests, API contract, and client examples.
-It does not contain worker core source code or secrets.
 
 ## Problem
 
@@ -92,8 +91,3 @@ Expected response shape (example):
 
 - Live docs: `https://reliability-pack-worker.animixel.workers.dev/docs`
 - Contact: `ops@reliability-pack-worker.animixel.workers.dev`
-
-## Safety Scope
-
-This repo is intentionally limited to integration material.
-No internal admin operations, anti-abuse internals, or secret configuration are published here.

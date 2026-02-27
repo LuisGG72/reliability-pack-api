@@ -2,8 +2,7 @@
 
 ## Scope
 
-This repository is an integration portal only.
-It intentionally excludes internal implementation details and secret configuration.
+This repository is an integration portal.
 
 ## Authentication
 
@@ -31,10 +30,3 @@ Public analytics are aggregated and designed to avoid end-user PII exposure.
 Retention is governed by operational service needs and may evolve.
 For deletion or data requests, contact:
 - `ops@reliability-pack-worker.animixel.workers.dev`
-
-## What is not documented here
-
-The following are intentionally not published in this portal:
-- internal anti-abuse heuristics
-- private admin workflows and privileged operational runbooks
-- secrets, tokens, webhook signatures, and environment configuration
