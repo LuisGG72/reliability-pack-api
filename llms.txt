@@ -35,7 +35,7 @@ Public:
 - GET /api/public-ops
 
 Private:
-- POST /api/normalize
+- POST /api/normalize (JSON normalization: null cleanup + type inference)
 - POST /api/contract-test
 - POST /api/contract-test/schedule
 - GET /api/contract-test/schedule

@@ -12,7 +12,7 @@ Agent workflows break on malformed payloads, unstable dependencies, and low-trus
 ## Solution
 
 FUTURE Reliability Pack provides three API tools:
-- Normalize input payloads.
+- Normalize JSON-like payloads (null cleanup + type inference).
 - Contract-test external tools/endpoints.
 - Build verifiable evidence packs from source URLs.
 
@@ -59,10 +59,12 @@ Expected response shape (example):
 1. `normalize_input`
 - Input: mixed or malformed JSON/string payloads.
 - Output: normalized payload + `run_id` for traceability.
+- Note: this is not natural-language date/time interpretation.
 
 2. `contract_test_tool`
 - Input: target URL + expected status/latency.
 - Output: pass/fail health signal + warning summary.
+- Includes `schema_checked` and `schema_valid` for JSON-schema check state.
 
 3. `build_evidence_pack`
 - Input: claim + source URLs.

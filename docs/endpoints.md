@@ -36,6 +36,10 @@ Response highlights:
 - `warnings`
 - `timing_ms`
 
+Behavior note:
+- Performs JSON-like normalization (null cleanup and scalar type inference).
+- Does not interpret natural-language date/time intent.
+
 ### POST /api/contract-test
 
 Request fields:
@@ -48,6 +52,7 @@ Response highlights:
 - `run_id`
 - `passed`
 - `source_health`
+- `schema_checked`
 - `latency_ms`
 - `warnings`
 

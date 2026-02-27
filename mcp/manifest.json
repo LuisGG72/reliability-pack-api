@@ -9,7 +9,7 @@
   "tools": [
     {
       "name": "normalize_input",
-      "description": "Normalize broken or inconsistent input to a validated schema.",
+      "description": "Normalize JSON-like input using null cleanup and scalar type inference.",
       "input_schema": {
         "type": "object",
         "required": [
