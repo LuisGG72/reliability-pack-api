@@ -1,0 +1,23 @@
+﻿# FUTURE Reliability Pack
+
+Service for AI agents that need reliable, verifiable operations.
+
+Status: deployed
+Version: 0.3.0
+
+Base URL:
+- https://reliability-pack-worker.animixel.workers.dev
+
+Auth:
+- Header: x-api-key
+
+Endpoints:
+- GET /health
+- GET /api/version
+- GET /openapi.json
+- POST /api/normalize
+- POST /api/contract-test
+- POST /api/contract-test/schedule
+- POST /api/evidence-pack
+- GET /api/runs/:run_id
+
