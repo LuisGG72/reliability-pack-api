@@ -52,3 +52,4 @@ Private:
 
 - API key required for private endpoints.
 - Server-side rate limiting and request-size controls are enforced.
+- Trial policy: up to 50 API requests or 7 days (whichever comes first), then paid plan.

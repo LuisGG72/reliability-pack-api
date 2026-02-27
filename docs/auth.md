@@ -23,6 +23,9 @@ Header format:
 x-api-key: <YOUR_API_KEY>
 ```
 
+Trial policy:
+- Up to 50 API requests or 7 days (whichever comes first), then upgrade to paid plan.
+
 ## Retry guidance
 
 Recommended client behavior:

@@ -87,6 +87,7 @@ MCP manifest documents tool-style operations. Full HTTP endpoint coverage (inclu
 
 - Subscription: `https://buy.stripe.com/fZucN6fbS7rYgJ06tG1VK00`
 - Access model: API key required for private endpoints.
+- Trial: up to `50` API requests or `7` days (whichever comes first), then upgrade to paid plan.
 
 ## Docs
 
