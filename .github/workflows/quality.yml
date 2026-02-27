@@ -1,0 +1,39 @@
+﻿name: quality
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validators
+        run: npm install --global prettier markdownlint-cli2 @apidevtools/swagger-cli
+
+      - name: Prettier check
+        run: prettier --check "**/*.{md,json,yml,yaml}"
+
+      - name: Markdown lint
+        run: markdownlint-cli2 "README.md" "docs/**/*.md" "*.md"
+
+      - name: Validate OpenAPI
+        run: swagger-cli validate specs/openapi.json
+
+      - name: Link check (docs)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress README.md docs/*.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

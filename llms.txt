@@ -1,6 +1,6 @@
 ﻿# FUTURE Reliability Pack
 
-Service for AI agents that need reliable, verifiable operations.
+Operational reliability API for AI agents.
 
 Status: deployed
 Version: 0.3.0
@@ -11,13 +11,28 @@ Base URL:
 Auth:
 - Header: x-api-key
 
-Endpoints:
+Discovery:
+- https://reliability-pack-worker.animixel.workers.dev/openapi.json
+- https://reliability-pack-worker.animixel.workers.dev/.well-known/agent.json
+- https://reliability-pack-worker.animixel.workers.dev/mcp/manifest.json
+
+Public endpoints:
 - GET /health
 - GET /api/version
 - GET /openapi.json
+- GET /llms.txt
+- GET /.well-known/agent.json
+- GET /mcp/manifest.json
+- GET /api/public-stats
+- GET /api/public-analytics
+- GET /api/public-ops
+
+Private endpoints:
 - POST /api/normalize
 - POST /api/contract-test
 - POST /api/contract-test/schedule
+- GET /api/contract-test/schedule
+- POST /api/contract-test/schedule/run-now
 - POST /api/evidence-pack
-- GET /api/runs/:run_id
-
+- GET /api/runs/{run_id}
+- GET /api/stats

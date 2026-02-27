@@ -1,66 +1,99 @@
 ﻿# FUTURE Reliability Pack API
 
-Public integration portal for the live SaaS API.
+Operational reliability API for AI agents.
 
-- Base URL: `https://reliability-pack-worker.animixel.workers.dev`
-- Live docs: `https://reliability-pack-worker.animixel.workers.dev/docs`
-- Subscribe: `https://buy.stripe.com/fZucN6fbS7rYgJ06tG1VK00`
+This repository is the public integration portal for the live SaaS service.
+It contains docs, manifests, API contract, and client examples.
+It does not contain worker core source code or secrets.
 
-## What this repo contains
+## Problem
 
-- Integration docs and examples only.
-- OpenAPI contract: [`specs/openapi.json`](./specs/openapi.json)
-- Agent discovery files:
-  - [`llms.txt`](./llms.txt)
-  - [`.well-known/agent.json`](./.well-known/agent.json)
-  - [`mcp/manifest.json`](./mcp/manifest.json)
+Agent workflows break on malformed payloads, unstable dependencies, and low-trust outputs.
 
-## What this repo does NOT contain
+## Solution
 
-- Internal worker source code.
-- Secrets, API keys, webhook secrets, or environment files.
-- Internal admin operations as public API surface.
+FUTURE Reliability Pack provides three API tools:
+- Normalize input payloads.
+- Contract-test external tools/endpoints.
+- Build verifiable evidence packs from source URLs.
 
-## Authentication
+## 60-Second Quickstart
 
-Private endpoints require header `x-api-key`.
+Base URL:
+- `https://reliability-pack-worker.animixel.workers.dev`
+
+Public health check:
 
 ```bash
--H "x-api-key: <YOUR_API_KEY>"
+curl -sS "https://reliability-pack-worker.animixel.workers.dev/health"
 ```
 
-## Core endpoints
+Private call with API key:
 
-Public:
-- `GET /health`
-- `GET /api/version`
-- `GET /openapi.json`
-- `GET /llms.txt`
-- `GET /.well-known/agent.json`
-- `GET /mcp/manifest.json`
-- `GET /api/public-stats`
-- `GET /api/public-analytics`
-- `GET /api/public-ops`
+```bash
+curl -sS -X POST "https://reliability-pack-worker.animixel.workers.dev/api/normalize" \
+  -H "content-type: application/json" \
+  -H "x-api-key: <YOUR_API_KEY>" \
+  -d '{"input":"{\"name\":\"tom\",\"active\":\"true\"}"}'
+```
 
-Private (with `x-api-key`):
-- `POST /api/normalize`
-- `POST /api/contract-test`
-- `POST /api/contract-test/schedule`
-- `GET /api/contract-test/schedule`
-- `POST /api/contract-test/schedule/run-now`
-- `POST /api/evidence-pack`
-- `GET /api/runs/{run_id}`
-- `GET /api/stats`
+Expected response shape (example):
 
-## Quick examples
+```json
+{
+  "run_id": "run_demo_123",
+  "ok": true,
+  "normalized": {
+    "name": "tom",
+    "active": true
+  },
+  "warnings": [],
+  "timing_ms": 31,
+  "request_id": "req_demo_123"
+}
+```
 
-See [`examples/`](./examples):
-- `curl_examples.sh`
-- `python_example.py`
-- `javascript_example.mjs`
+## Core Use Cases
 
-## Notes
+1. `normalize_input`
+- Input: mixed or malformed JSON/string payloads.
+- Output: normalized payload + `run_id` for traceability.
 
-- Every API response includes header `x-request-id`.
-- JSON responses include `request_id` in body (except strict OpenAPI endpoint behavior).
-- Scheduler/internal traffic is tracked separately from public business usage in current reporting.
+2. `contract_test_tool`
+- Input: target URL + expected status/latency.
+- Output: pass/fail health signal + warning summary.
+
+3. `build_evidence_pack`
+- Input: claim + source URLs.
+- Output: hash-based evidence package references.
+
+## Integration Assets
+
+- OpenAPI contract: [`specs/openapi.json`](./specs/openapi.json)
+- `llms.txt`: [`llms.txt`](./llms.txt)
+- Agent card: [`.well-known/agent.json`](./.well-known/agent.json)
+- MCP manifest: [`mcp/manifest.json`](./mcp/manifest.json)
+- Copy/paste examples: [`examples/`](./examples)
+
+## Pricing
+
+- Subscription: `https://buy.stripe.com/fZucN6fbS7rYgJ06tG1VK00`
+- Access model: API key required for private endpoints.
+
+## Docs
+
+- Quickstart: [`docs/quickstart.md`](./docs/quickstart.md)
+- Auth and access: [`docs/auth.md`](./docs/auth.md)
+- Endpoints: [`docs/endpoints.md`](./docs/endpoints.md)
+- Examples: [`docs/examples.md`](./docs/examples.md)
+- Security and data policy: [`docs/security.md`](./docs/security.md)
+
+## Support
+
+- Live docs: `https://reliability-pack-worker.animixel.workers.dev/docs`
+- Contact: `ops@reliability-pack-worker.animixel.workers.dev`
+
+## Safety Scope
+
+This repo is intentionally limited to integration material.
+No internal admin operations, anti-abuse internals, or secret configuration are published here.
