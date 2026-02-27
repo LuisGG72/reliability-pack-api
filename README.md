@@ -1,4 +1,4 @@
-﻿# FUTURE Reliability Pack API
+# FUTURE Reliability Pack API
 
 Operational reliability API for AI agents.
 
@@ -20,6 +20,8 @@ FUTURE Reliability Pack provides three API tools:
 
 Base URL:
 - `https://reliability-pack-worker.animixel.workers.dev`
+- Get API key / Subscribe:
+- `https://buy.stripe.com/fZucN6fbS7rYgJ06tG1VK00`
 
 Public health check:
 
@@ -76,6 +78,8 @@ Expected response shape (example):
 - [`examples/curl_examples.sh`](./examples/curl_examples.sh)
 - [`examples/node.js`](./examples/node.js)
 - [`examples/python.py`](./examples/python.py)
+
+MCP manifest documents tool-style operations. Full HTTP endpoint coverage (including scheduling and public analytics) is defined in OpenAPI.
 
 ## Pricing
 

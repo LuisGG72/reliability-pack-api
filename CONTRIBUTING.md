@@ -1,4 +1,4 @@
-﻿# Contributing
+# Contributing
 
 Thanks for helping improve the integration portal.
 

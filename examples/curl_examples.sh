@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 BASE_URL="https://reliability-pack-worker.animixel.workers.dev"

@@ -1,4 +1,4 @@
-﻿# Security and Data Policy
+# Security and Data Policy
 
 ## Scope
 

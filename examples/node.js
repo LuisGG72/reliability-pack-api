@@ -1,4 +1,4 @@
-﻿const BASE_URL = "https://reliability-pack-worker.animixel.workers.dev";
+const BASE_URL = "https://reliability-pack-worker.animixel.workers.dev";
 const API_KEY = process.env.API_KEY || "REPLACE_WITH_YOUR_KEY";
 
 async function post(path, payload) {

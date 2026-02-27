@@ -1,4 +1,4 @@
-﻿# Examples
+# Examples
 
 This page mirrors the runnable examples under [`examples/`](../examples).
 

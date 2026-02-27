@@ -1,4 +1,4 @@
-﻿# FUTURE Reliability Pack
+# FUTURE Reliability Pack
 
 Operational reliability API for AI agents.
 

@@ -1,4 +1,4 @@
-﻿# Auth
+# Auth
 
 ## Public endpoints
 

@@ -1,4 +1,4 @@
-﻿# Quickstart
+# Quickstart
 
 Base URL:
 - `https://reliability-pack-worker.animixel.workers.dev`
